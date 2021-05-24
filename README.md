@@ -1,6 +1,10 @@
 # FCalc - Calculator app built with Flutter.
 A simple calculator application built with flutter with both light and dark theme modes.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/surajboniwal/Fcalc/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png">
+</p>
+
 | Light Mode | Dark Mode |
 | :------------: | :------------: |
 | ![Light Mode](https://raw.githubusercontent.com/surajboniwal/Fcalc/master/assets/screenshots/light.png "Light Mode") | ![Dark Mode](https://raw.githubusercontent.com/surajboniwal/Fcalc/master/assets/screenshots/dark.png "Dark Mode") |
