@@ -75,12 +75,14 @@ class CalcController extends GetxController {
           updateFirstDigit(int.parse(id));
         } else if (state == State.secondDigit) {
           updateSecondDigit(int.parse(id));
-        } else if (state == State.continueCalculation) {
+        } else if (state == State.continueCalculation && result.value != '') {
           firstDigit.value = result.value;
           result.value = '';
           secondDigit.value = '';
           updateSecondDigit(int.parse(id));
           state = State.secondDigit;
+        } else if (state == State.continueCalculation && result.value == '') {
+          updateSecondDigit(int.parse(id));
         }
     }
   }
@@ -99,11 +101,9 @@ class CalcController extends GetxController {
 
   backspace() {
     if (state == State.firstDigit) {
-      firstDigit.value =
-          firstDigit.value.substring(0, firstDigit.value.length - 1);
+      firstDigit.value = firstDigit.value.substring(0, firstDigit.value.length - 1);
     } else if (state == State.secondDigit) {
-      secondDigit.value =
-          secondDigit.value.substring(0, secondDigit.value.length - 1);
+      secondDigit.value = secondDigit.value.substring(0, secondDigit.value.length - 1);
     }
   }
 
@@ -131,21 +131,15 @@ class CalcController extends GetxController {
       return;
     }
     if (method.value == Method.divide) {
-      calculationResult =
-          (double.parse(firstDigit.value) / double.parse(secondDigit.value));
+      calculationResult = (double.parse(firstDigit.value) / double.parse(secondDigit.value));
     } else if (method.value == Method.multiply) {
-      calculationResult =
-          (double.parse(firstDigit.value) * double.parse(secondDigit.value));
+      calculationResult = (double.parse(firstDigit.value) * double.parse(secondDigit.value));
     } else if (method.value == Method.add) {
-      calculationResult =
-          (double.parse(firstDigit.value) + double.parse(secondDigit.value));
+      calculationResult = (double.parse(firstDigit.value) + double.parse(secondDigit.value));
     } else if (method.value == Method.subtract) {
-      calculationResult =
-          (double.parse(firstDigit.value) - double.parse(secondDigit.value));
+      calculationResult = (double.parse(firstDigit.value) - double.parse(secondDigit.value));
     } else if (method.value == Method.percent) {
-      calculationResult =
-          (double.parse(firstDigit.value) / double.parse(secondDigit.value)) *
-              100;
+      calculationResult = (double.parse(firstDigit.value) / double.parse(secondDigit.value)) * 100;
       print(calculationResult);
     }
     var finalResult = calculationResult.toStringAsFixed(2);
