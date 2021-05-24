@@ -92,7 +92,7 @@ class CalcController extends GetxController {
       if (!firstDigit.value.contains('.')) {
         firstDigit.value = firstDigit.value + '.';
       }
-    } else if (state == State.secondDigit) {
+    } else if (state == State.secondDigit || state == State.continueCalculation) {
       if (!secondDigit.value.contains('.')) {
         secondDigit.value = secondDigit.value + '.';
       }
